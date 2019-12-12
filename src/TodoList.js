@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
+import store from './store'
 
-const data = ['Task1', 'Task2', 'Task3']
+// const data = []
 
 class TodoList extends Component {
+
+    constructor(props){
+        super(props)
+        console.log(store.getState())
+    }
 
     render() {
         return (
@@ -14,7 +20,7 @@ class TodoList extends Component {
                     <Button type='primary'>Add</Button>
                 </div>
                 <div style={{ margin: '10px', width: '300px' }}>
-                    <List bordered dataSource={data} renderItem={(item) => (<List.Item>{item}</List.Item>)}></List>
+                    <List bordered dataSource={[]} renderItem={(item) => (<List.Item>{item}</List.Item>)}></List>
                 </div>
 
             </div>
