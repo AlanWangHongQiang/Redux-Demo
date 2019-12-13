@@ -1,5 +1,6 @@
-import {createStore,applyMiddleware,compose} from 'redux'
+import {createStore,applyMiddleware,compose,combineReducers} from 'redux'
 import reducer from './reducer'
+import reducer1 from './reducer1'
 //import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
 import mySagas from './sagas'
@@ -13,8 +14,13 @@ const composeEnhancer =  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
 
 const enhancer = composeEnhancer(applyMiddleware(sagaMiddleware))
 
+var comboReducers = combineReducers({
+    todoList:reducer,
+    secondInput:reducer1
+})
+
 const store = createStore(
-    reducer,
+    comboReducers,
     enhancer
 )
 sagaMiddleware.run(mySagas)

@@ -4,13 +4,14 @@ import {changeInputAction,addItemAction,deleteItemAction,getListAction,getTodoLi
 import TodoListUI from './TodoListUI';
 import store from './store'
 import axios from 'axios'
+
 // const data = []
 
 class TodoList extends Component {
 
     constructor(props){
         super(props)
-        console.log(store.getState())
+        //console.log(store.getState())
         this.state = store.getState()
         this.changeInputValue = this.changeInputValue.bind(this)
         this.storeChange = this.storeChange.bind(this)
@@ -69,7 +70,7 @@ class TodoList extends Component {
     render() {
         return (
             <TodoListUI
-                inputValue={this.state.inputValue}
+                inputValue={this.state.todoList.inputValue}
                 changeInputValue={this.changeInputValue}
                 clickBtn={this.clickBtn}
                 list={this.state.list}

@@ -1,4 +1,4 @@
-import { CHANGE_INPUT,ADD_ITEM,DELETE_ITEM,GET_LIST,GET_MY_LIST } from './actionTypes'
+import { CHANGE_INPUT,ADD_ITEM,DELETE_ITEM,GET_LIST,GET_MY_LIST ,CHANGE_SEC_INPUT} from './actionTypes'
 import axios from 'axios'
 
 //箭头函数的多行return要加上括号，因为只有一个表达式所以他是个return
@@ -31,6 +31,12 @@ export const getTodoList = ()=>{
             dispatch(action)
            
         })
+    }
+}
+export const changeSecondInputAction = (value)=>{
+    return {
+        type:CHANGE_SEC_INPUT,
+        value
     }
 }
 
